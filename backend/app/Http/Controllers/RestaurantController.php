@@ -16,10 +16,10 @@ class RestaurantController extends Controller
             $query->where('name', 'like', '%' . $request->q . '%');
         }
         if ($request->filled('location')) {
-            $query->where('location', $request->location);
+            $query->where('location', 'like', '%' . $request->location . '%');
         }
         if ($request->filled('cuisine')) {
-            $query->where('cuisine', $request->cuisine);
+            $query->where('cuisine', 'like', '%' . $request->cuisine . '%');
         }
         $sortBy = $request->get('sort_by', 'name');
         $sortOrder = $request->get('sort_order', 'asc');
